@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Daily Goals</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Goals to Hit</h1>
+        <div class="input-area">    
+            <input type="text" id="newTask" name="newTask">
+            <button id="addTask">Add Task</button>
+            <button id="compTask">Complete Task</button>
+            <button id="editTask">Edit Tasks</button>
+        </div>
+        <ul id="taskList">
+            <li class="task">
+                <span class="task-text">Task Description Here</span>
+                <button class="complete-button">✓</button>
+                <button class="edit-button">✎</button>
+                <button class="delete-btn">🗑</button>
+            </li>
+        </ul>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
