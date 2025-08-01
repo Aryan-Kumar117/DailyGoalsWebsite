@@ -124,3 +124,25 @@ remCompTask.addEventListener("click", function (){
   localStorage.setItem("tasks", JSON.stringify(taskArray));
 });
 
+function setRandomBackground(){
+  const accessKey = "nnNKV-vFDLGlNr2M3XeIt3DwcVkGrlbQAHh9SfvmjKk";
+  fetch(`https://api.unsplash.com/photos/random?query=motivational&orientation=landscape&client_id=${accessKey}`)
+    .then((response) => {
+      if(!response.ok) throw new Error(`HHTP Error! Status: ${response.status}`);
+      return response.json();
+    })
+    .then((data) => {
+      const imageURL = data.urls.full;
+
+      document.body.style.backgroundImage = `url(${imageURL})`;
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundPosition = "center";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.transition = "background-image 0.8s ease-in-out";
+    })
+    .catch((error) => {
+      console.error("Failed to load background image:", error);
+    })
+}
+
+window.addEventListener("load", setRandomBackground);
