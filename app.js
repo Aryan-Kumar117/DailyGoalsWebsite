@@ -32,10 +32,16 @@ function createTaskItem(txt, isComplete, isOnLoad){
 
   const taskItem = document.createElement("li");
   taskItem.classList.add("taskItem");
+
   taskItem.appendChild(span);
-  taskItem.appendChild(complete_btn);
-  taskItem.appendChild(edit_btn);
-  taskItem.appendChild(del_btn);
+
+  const btnWrapper = document.createElement("div");
+  btnWrapper.classList.add("task-buttons");
+
+  btnWrapper.appendChild(complete_btn);
+  btnWrapper.appendChild(edit_btn);
+  btnWrapper.appendChild(del_btn);
+  taskItem.appendChild(btnWrapper);
 
   taskList.appendChild(taskItem);
 
