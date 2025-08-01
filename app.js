@@ -29,9 +29,31 @@ addTask.addEventListener("click", function (){
   taskItem.appendChild(del_btn);
 
   taskList.appendChild(taskItem);
+
+  complete_btn.addEventListener("click", function() {
+    taskItem.classList.toggle("completed");
+  });
+
+  del_btn.addEventListener("click", function (){
+    taskItem.remove();
+  });
+
+  edit_btn.addEventListener("click", function(){
+    if(edit_btn.textContent === "✎"){
+      taskText = span.textContent;
+      input = document.createElement("input");
+      input.type = "text";
+      input.value = taskText;
+      taskItem.replaceChild(input, span);
+      edit_btn.textContent = "💾";
+    }
+    else if(edit_btn.textContent === "💾"){
+      span.textContent = input.value;
+      taskItem.replaceChild(span, input);
+      edit_btn.textContent = "✎";
+    }
+  });
 });
 
-complete_btn.addEventListener("click", function() {
-  taskList.classList.toggle("completed");
-});
+
 
